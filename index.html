@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Kuchu Puchu ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    overflow-x:hidden;
+}
+.screen{
+    display:none;
+    min-height:100vh;
+    padding:40px;
+    text-align:center;
+}
+.active{display:block;}
+.container{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    animation:fadeIn 1s;
+}
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+button{
+    margin-top:25px;
+    padding:12px 28px;
+    background:#ff4b6e;
+    color:white;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+}
+button:hover{background:#e63b5c;}
+input{
+    padding:12px;
+    width:70%;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+img{
+    width:100%;
+    border-radius:15px;
+    margin-top:20px;
+}
+
+/* Balloon */
+#balloon{
+    width:160px;
+    height:210px;
+    background:red;
+    border-radius:50%;
+    margin:60px auto;
+    cursor:pointer;
+    position:relative;
+    animation:float 2s infinite;
+}
+#balloon:after{
+    content:"";
+    width:4px;
+    height:90px;
+    background:black;
+    position:absolute;
+    left:50%;
+    bottom:-90px;
+}
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
+}
+#finalText{
+    display:none;
+    font-size:40px;
+    color:#ff004f;
+    font-weight:bold;
+    animation:pop 0.8s ease-out;
+}
+@keyframes pop{
+    from{transform:scale(0);}
+    to{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 : PASSWORD -->
+<div class="screen active" id="s1">
+    <div class="container">
+        <h1>🔐 A Little Surprise</h1>
+        <p>Enter the password ❤️</p>
+        <input type="password" id="pass" placeholder="Password">
+        <br><br>
+        <button onclick="check()">Unlock 💕</button>
+        <p id="err" style="color:red;"></p>
+    </div>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen" id="s2">
+    <div class="container">
+        <h1> Happy Birthday My Love❤️</h1>
+        <p>
+            ✏️ My Love Happiest Birthday, I am literally so thankful to god that he sent you in my life.
+I am super duper proud of you baby and will always be. You are so good at sports, wow literally wowww!!!.
+no nazarrr…. You make me the happiest girlfriend truly. I just wish all your dreams come true, and may you achieve everything you always wanted, always stay happy my bacha, because you smile makes my day soo much better.
+I love you 
+        </p>
+        <button onclick="go(3)">Click to continue →</button>
+    </div>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen" id="s3">
+    <div class="container">
+        <h2>From My Heart 💌</h2>
+        <p style="font-size:18px;line-height:1.6;">
+            ✏️ Mera cutie patootiee babyyyyy, I will always be by your side no matter what,
+afterall I wanna see you achieve all your dreams        
+ </p>
+        <button onclick="go(4)">Next 💖</button>
+    </div>
+</div>
+
+<!-- SCREEN 4 : PHOTOS -->
+<div class="screen" id="s4">
+    <div class="container">
+        <h2>Our Memories 📸</h2>
+
+        <img src="images/img1.jpg.jpeg">
+        <p>✏️ I hope this dream of yours comes true 1</p>
+
+        <img src="images/img2.jpg.jpeg">
+        <p>✏️ My heart literally melted the moment you sent me this photo 2</p>
+
+        <img src="images/img3.jpg.jpeg">
+        <p>✏️ our first cute date 3</p>
+
+        <button onclick="go(2)">One last thing 🎈</button>
+    </div>
+</div>
+
+<!-- SCREEN 5 : BALLOON -->
+<div class="screen" id="s5">
+    <div class="container">
+        <h2>Click the Balloon 🎈</h2>
+        <div id="balloon" onclick="burst()"></div>
+        <div id="finalText">
+            I LOVE YOU ❤️
+        </div>
+    </div>
+</div>
+
+<script>
+function check(){
+    if(document.getElementById("pass").value==="230925"){
+        go(2);
+    }else{
+        document.getElementById("err").innerText="Wrong password 💔";
+    }
+}
+function go(n){
+    document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+    document.getElementById("s"+n).classList.add("active");
+}
+function burst(){
+    document.getElementById("balloon").style.display="none";
+    document.getElementById("finalText").style.display="block";
+}
+</script>
+
+</body>
+</html>
